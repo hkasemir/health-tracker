@@ -1,18 +1,18 @@
 /*global health-tracker, $*/
 
-
-window.health-tracker = {
+window.HealthTracker = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   init: function () {
     'use strict';
-    console.log('Hello from Backbone!');
+    var calStoreView = new HealthTracker.Views.CaloreStore();
+    var searchView = new HealthTracker.Views.SearchResults();
   }
 };
 
 $(document).ready(function () {
   'use strict';
-  health-tracker.init();
-});
+  HealthTracker.init();
+  });
