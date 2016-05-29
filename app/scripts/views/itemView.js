@@ -12,11 +12,12 @@ HealthTracker.Views = HealthTracker.Views || {};
     tagName: 'li',
 
     events: {
-      'click .tile': 'addToBank'
+      'click .addButton': 'addToStore'
     },
 
     initialize: function () {
       this.listenTo(this.model, 'change', this.render);
+      this.render();
     },
 
     render: function () {
@@ -25,8 +26,15 @@ HealthTracker.Views = HealthTracker.Views || {};
       }));
     },
 
-    addToBank: function () {
-      console.log(this.model)
+    addToStore: function () {
+      let quantity = this.el.querySelector('.qtyInput').value;
+      if (quantity) {
+	this.model.set({
+	  quantity: quantity
+	})
+      }
+      this.collection.add(this.model)
+      this.collection.trigger('change')
     }
 
   });

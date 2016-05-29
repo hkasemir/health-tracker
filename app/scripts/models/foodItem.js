@@ -8,6 +8,7 @@ HealthTracker.Models = HealthTracker.Models || {};
   HealthTracker.Models.FoodItem = Backbone.Model.extend({
 
     defaults: {
+      quantity: 1,
       foodName: 'default',
       brand: 'default',
       servingQty: 'default',

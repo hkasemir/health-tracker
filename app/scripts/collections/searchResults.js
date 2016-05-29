@@ -31,7 +31,6 @@ HealthTracker.Collections = HealthTracker.Collections || {};
     addResults: function (foodArray) {
       // empty old search results
       this.reset();
-      console.log(foodArray)
       // add a new model for each search result
       foodArray.forEach(item => {
 	let f = item.fields

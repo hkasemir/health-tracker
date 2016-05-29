@@ -18,13 +18,22 @@ HealthTracker.Views = HealthTracker.Views || {};
     events: {},
 
     initialize: function () {
-//      this.listenTo(this.model, 'change', this.render);
+      this.listenTo(this.model, 'change', this.render);
       this.render();
     },
 
     render: function () {
       $('#calore-container').html(this.$el);
       this.$el.html(this.template());
+      this.model.each(this.renderItem);
+    },
+
+    renderItem: function (model) {
+      let itemView = new HealthTracker.Views.StoreItemView({ model: model,
+                                                        collection: HealthTracker.Collections.calCollection });
+      itemView.render();
+      $('#store').append(itemView.$el);
+ 
     }
 
   });

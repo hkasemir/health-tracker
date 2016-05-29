@@ -5,6 +5,7 @@ HealthTracker.Views = HealthTracker.Views || {};
 (function () {
   'use strict';
 
+
   HealthTracker.Views.SearchResults = Backbone.View.extend({
 
     el: $('#search-container'),
@@ -28,7 +29,10 @@ HealthTracker.Views = HealthTracker.Views || {};
     },
 
     renderItem: function (model) {
-      let itemView = new HealthTracker.Views.ItemView({	model: model });
+      // adding the calCollection as a collection on the search
+      // items so that we can have easy access to the collection
+      let itemView = new HealthTracker.Views.ItemView({	model: model,
+                                                        collection: HealthTracker.Collections.calCollection });
       itemView.render();
       $('#results').append(itemView.$el);
     },
