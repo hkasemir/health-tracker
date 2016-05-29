@@ -7,13 +7,13 @@ HealthTracker.Models = HealthTracker.Models || {};
 
   HealthTracker.Models.SearchResults = Backbone.Model.extend({
 
-    initialize: function() {
-    },
-
     defaults: {
-      foodName: 'salad',
+      foodName: 'default',
+      brand: 'default',
+      servingQty: 'default',
+      servingSize: 'default',
       calories: 500
-    },
+    }
 
   });
 

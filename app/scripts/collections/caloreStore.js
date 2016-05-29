@@ -9,7 +9,7 @@ HealthTracker.Collections = HealthTracker.Collections || {};
 
     model: HealthTracker.Models.CaloreStore,
 
-    localStorage: new Backbone.localStorage('calore-collection');
+//    localStorage: new Backbone.localStorage('calore-collection')
 
   });
 
