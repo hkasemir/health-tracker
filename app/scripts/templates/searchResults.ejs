@@ -1,9 +1,4 @@
 <p>Search results</p>
   <input id="search" class="search-bar" type="text" placeholder="What did you eat today?">
 
-<ul>
-  <% items.forEach(function(item){ %>
-    <li class="tile"><%= item.attributes.foodName %> | Calories: 
-    <%= item.attributes.calories %></li>
-  <% }) %>
-</ul>
+<ul id="results"></ul>

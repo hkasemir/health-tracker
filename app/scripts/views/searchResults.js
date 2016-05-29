@@ -14,7 +14,6 @@ HealthTracker.Views = HealthTracker.Views || {};
     className: '',
 
     events: {
-      'click #searchButton' : 'fetchNutritionix',
       'keydown #search' : 'autocomplete',
     },
 
@@ -24,13 +23,17 @@ HealthTracker.Views = HealthTracker.Views || {};
     },
 
     render: function () {
-      this.$el.html(this.template({
-	items: this.model.models
-      }));
+      this.$el.html(this.template());
+      this.model.each(this.renderItem);
+    },
+
+    renderItem: function (model) {
+      let itemView = new HealthTracker.Views.ItemView({	model: model });
+      itemView.render();
+      $('#results').append(itemView.$el);
     },
 
     autocomplete: function(evt) {
-      let self = this;
       let search = $('#search');
       if(evt.keyCode === 13) {
 	this.model.fetchNutritionix(search.val());

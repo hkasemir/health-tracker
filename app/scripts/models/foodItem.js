@@ -5,7 +5,7 @@ HealthTracker.Models = HealthTracker.Models || {};
 (function () {
   'use strict';
 
-  HealthTracker.Models.SearchResults = Backbone.Model.extend({
+  HealthTracker.Models.FoodItem = Backbone.Model.extend({
 
     defaults: {
       foodName: 'default',

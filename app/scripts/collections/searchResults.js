@@ -7,9 +7,9 @@ HealthTracker.Collections = HealthTracker.Collections || {};
 
   HealthTracker.Collections.SearchResults = Backbone.Collection.extend({
 
-    model: HealthTracker.Models.SearchResults,
+    model: HealthTracker.Models.FoodItem,
     
-    fetchNutritionix: function($query) {
+    fetchNutritionix: function(query) {
 
       let urlBase = 'https://api.nutritionix.com/v1_1/search/';
       let apiOptions = {
@@ -19,7 +19,7 @@ HealthTracker.Collections = HealthTracker.Collections || {};
         appKey: '19b4fdb6d50cacf129595e048adcbb5f'
       }
     
-      let fetchUrl = urlBase + $query + '?' + $.param(apiOptions);
+      let fetchUrl = urlBase + query + '?' + $.param(apiOptions);
       fetch(fetchUrl).then (result => {
 	result.json().then(json => {
 	  this.addResults(json.hits);
@@ -31,6 +31,7 @@ HealthTracker.Collections = HealthTracker.Collections || {};
     addResults: function (foodArray) {
       // empty old search results
       this.reset();
+      console.log(foodArray)
       // add a new model for each search result
       foodArray.forEach(item => {
 	let f = item.fields
