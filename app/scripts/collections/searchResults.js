@@ -7,7 +7,6 @@ HealthTracker.Collections = HealthTracker.Collections || {};
 
   HealthTracker.Collections.SearchResults = Backbone.Collection.extend({
 
-    model: HealthTracker.Models.FoodItem,
     
     fetchNutritionix: function(query) {
 
@@ -43,6 +42,10 @@ HealthTracker.Collections = HealthTracker.Collections || {};
 	});
       });
     },
+
+    clearResults: function () {
+      this.reset();
+    }
   });
   
   

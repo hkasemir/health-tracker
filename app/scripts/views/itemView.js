@@ -33,8 +33,9 @@ HealthTracker.Views = HealthTracker.Views || {};
 	  quantity: quantity
 	})
       }
-      this.collection.add(this.model)
-      this.collection.trigger('change')
+      this.collection.addItem(this.model);
+      HealthTracker.Collections.searchCollection.reset();
+      // HealthTracker.Collections.searchCollection.trigger('change');
     }
 
   });
