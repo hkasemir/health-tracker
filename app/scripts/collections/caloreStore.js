@@ -6,12 +6,8 @@ HealthTracker.Collections = HealthTracker.Collections || {};
   'use strict';
 
   HealthTracker.Collections.CaloreStore = Backbone.Collection.extend({
-  //HealthTracker.Collections.CaloreStore = Backbone.Firebase.Collection.extend({
 
-//    model: HealthTracker.Models.CaloreStore,
-    url: new Firebase('https://healthtrackerudacity.firebaseio.com/store'),
-
-    autoSync: true,
+    localStorage: new Backbone.LocalStorage('CalorieCollection'),
 
     addItem: function(model) {
       this.create({
@@ -26,7 +22,6 @@ HealthTracker.Collections = HealthTracker.Collections || {};
       this.trigger('change');
     }
 
-//    localStorage: new Backbone.localStorage('calore-collection')
 
   });
 
